@@ -1,15 +1,20 @@
 <template>
     <div>
         <Header></Header>
-        <home></home>
+        <intro></intro>
+        <ExploreRecipies></ExploreRecipies>
         <Footer></Footer>
+        <explore></explore>
+
     </div>
 </template>
 
 <script >
 import Header from '../components/sections/Header.vue';
 import Footer from '../components/sections/Footer.vue';
-import home from '../components/home.vue';
+import intro from '../components/intro.vue';
+import ExploreRecipies from '../components/ExploreRecipies.vue';
+import explore from '../components/popups/explore.vue';
 export default{
 
     name:'Home-page',
@@ -22,7 +27,9 @@ export default{
     components:{
         Header,
         Footer,
-        home,
+        intro,
+        ExploreRecipies,
+        explore,
     }
 
 }
