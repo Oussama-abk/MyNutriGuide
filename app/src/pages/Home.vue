@@ -5,6 +5,7 @@
         <ExploreRecipies></ExploreRecipies>
         <Footer></Footer>
         <explore></explore>
+        <leftof></leftof>
 
     </div>
 </template>
@@ -15,6 +16,7 @@ import Footer from '../components/sections/Footer.vue';
 import intro from '../components/intro.vue';
 import ExploreRecipies from '../components/ExploreRecipies.vue';
 import explore from '../components/popups/explore.vue';
+import leftof from '../components/popups/leftof.vue';
 export default{
 
     name:'Home-page',
@@ -30,6 +32,7 @@ export default{
         intro,
         ExploreRecipies,
         explore,
+        leftof,
     }
 
 }

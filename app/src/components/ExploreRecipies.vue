@@ -37,7 +37,7 @@ export default {
             try {
                 const results = await axios.get('https://www.themealdb.com/api/json/v1/1/search.php?f=r')
                 const fetchedRecipies = results.data.meals;
-                console.log(fetchedRecipies)
+
                 if (results) {
 
                     for (let i = 0; i < 6; i++) {

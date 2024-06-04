@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="container-header">
-            <img src="../../assets/logo.png" alt="logo">
+            <img @click.prevent="home" src="../../assets/logo.png" alt="logo">
         </div>
     </div>
 </template>
@@ -12,6 +12,12 @@ export default{
     data(){
         return {
 
+        }
+    },
+
+    methods:{
+        home(){
+            this.$router.push("/");
         }
     }
 }

@@ -33,7 +33,7 @@
                 </p>
 
                 <div class="container-btns">
-                    <button class="btn1">Recette avec restes</button>
+                    <button class="btn1" @click.prevent="leftOfPopup">Recette avec restes</button>
                     <button class="btn2" @click.prevent="openExplorePopup">Explorez la recette</button>
                 </div>
             </div>
@@ -47,7 +47,9 @@
 <script>
 
 import searchbar from './searchbar.vue';
-// import eventBus from '@/plugins/eventBus.js'; // Adjust the path if necessary
+import bus from 'vue3-eventbus'
+
+
 
 
 export default {
@@ -57,9 +59,17 @@ export default {
         };
     },
     methods: {
-        // openExplorePopup(){
-        //     eventBus.$emit('openExplorePopup');
-        // }
+        openExplorePopup(){
+            bus.emit('openExplorePopup');
+
+        },
+
+        leftOfPopup(){
+            bus.emit('openLeftOf');
+
+        }
+
+
 
     },
     components: {

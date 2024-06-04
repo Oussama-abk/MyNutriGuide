@@ -1,29 +1,27 @@
 <template>
     <div class="container_recipie">
-
-        <div class="img_title">
-            <div class="content-title-txt">
-                <p class="title"> {{ recipie.name }}</p>
-                <p class="txt">
-                    Welcome to my special recipe! I bet you are excited to discover the magic ingredients and instructions to prepare the tart you see in the picture. Don't worry, you're in the right place. We provide all the ingredients and instructions you need. Plus, we've uploaded a helpful video on YouTube which you can find below. If you could kindly drop a like on the video, it would encourage us to continue providing more delicious dishes. Thank you and enjoy! 😊
-                </p>
-            </div>
-
-            <img :src="recipie.img" alt="Delicious !!">
+        <div class="title">
+            <p class="recipie-name">{{ recipie.name }}</p>
+            <p class="text">{{ recipie.name }} est un plat délicieux. Nous allons vous aider à le préparer étape par étape. Vous trouverez la recette et la vidéo ci-dessous!</p>
+            <img :src="recipie.img">
         </div>
 
+        <div class="instructions-container">
 
-        <div class="ingrdient-ytb_content">
-            <iframe width="560" height="315" :src="`https://www.youtube.com/embed/${recipie.ytbLink}`"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-            </iframe>
-            <div class="recipieInstruction"v-html="recipie.instruction">
+            <div class="instruction" v-html="recipie.instruction">
 
-            </div>
+            </div>  
+            <button @click.prevent="plusinfo">Plus d'information</button>
+
+            <iframe class="videoytb" width="560" height="315" :src="`https://www.youtube.com/embed/${recipie.ytbLink}`"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+
         </div>
-
+        
+       
     </div>
 </template>
 
@@ -45,7 +43,9 @@ export default {
 
 
     methods:{
-
+        plusinfo(){
+            window.location.replace(this.recipie.moreinfo)
+        },
         fetchRecipe() {
 
         const query = this.$route.params.dish;
@@ -67,6 +67,7 @@ export default {
                         ytbLink : results.data.meals[0].strYoutube.split("v=")[1],
                         img : results.data.meals[0].strMealThumb,
                         instruction : results.data.meals[0].strInstructions,
+                        moreinfo: results.data.meals[0].strSource,
 
                     }
 
@@ -92,48 +93,52 @@ export default {
 <style lang="css" scoped>
 
 .container_recipie{
-    width: 90%;
-    margin:auto
-}
-.img_title {
-    padding: 20px;
-    display: grid;
-    grid-template-columns: auto auto;
+    padding: 0px 10%;
+
 }
 
-.img_title img {
-    width:500px;
+.title{
+    text-align: left;
+    margin: 10px 50px;
 }
-
-.img_title .title {
+p.recipie-name{
+    color: black;
     font-size: 36px;
-    font-family: "Roboto", sans-serif;
-    font-weight: bolder;
-    text-align: center;
-    margin: 5px;
+    font-family: 'open sans'; 
+    margin:0%;
 }
-.content-title-txt{
-    width: 550px;
+p.text{
+    color:#666;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: "Roboto";
 }
-.img_title .txt{
-    font-size: 22px;
-    font-family: 'Open Sans';
+.title img{
+    width: 450px;
+}
+.instructions-container{
+    padding:  0px 45px;
     text-align: justify;
+    font-family: 'open sans';
+    font-size: 14px;
+    color: black;
 }
 
-.ingrdient-ytb_content{
-    display: grid;
-    grid-template-columns: auto auto;
+.videoytb{
+    display: flex;
+    margin: auto;
+    padding: 30px;
+}
+button{
+    border: none;
+    color: white;
+    background-color: rgb(233, 121, 121);
+    padding: 10px 15px;
+    display: flex;
+    margin-left: auto
+}
+button:hover{
+    background-color: rgb(255, 60, 60);
 
 }
-
-.recipieInstruction {
-    text-align: justify;
-    width: 80%;
-margin: auto;
-font-size: 18px;
-font-family: 'Open Sans';
-}
-
-
 </style>
