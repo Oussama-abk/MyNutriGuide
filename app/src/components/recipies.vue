@@ -91,54 +91,83 @@ export default {
 </script>
 
 <style lang="css" scoped>
-
-.container_recipie{
-    padding: 0px 10%;
-
+.container_recipie {
+    padding: 0 10%;
+    margin: 20px auto;
+    max-width: 1200px;
 }
 
-.title{
+.title {
     text-align: left;
-    margin: 10px 50px;
+    margin: 10px 0;
 }
-p.recipie-name{
+
+p.recipie-name {
     color: black;
-    font-size: 36px;
-    font-family: 'open sans'; 
-    margin:0%;
+    font-size: 2rem;
+    font-family: 'Open Sans', sans-serif; 
+    margin: 0;
 }
-p.text{
-    color:#666;
+
+p.text {
+    color: #666;
     font-size: 1rem;
     line-height: 1.5;
-    font-family: "Roboto";
+    font-family: "Roboto", sans-serif;
 }
-.title img{
-    width: 450px;
+
+.title img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    display: block;
+    margin: 20px 0;
 }
-.instructions-container{
-    padding:  0px 45px;
+
+.instructions-container {
+    padding: 20px 0;
     text-align: justify;
-    font-family: 'open sans';
-    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
     color: black;
 }
 
-.videoytb{
-    display: flex;
-    margin: auto;
-    padding: 30px;
+.videoytb {
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    display: block;
+    margin: 30px auto;
 }
-button{
+
+button {
     border: none;
     color: white;
     background-color: rgb(233, 121, 121);
     padding: 10px 15px;
-    display: flex;
-    margin-left: auto
+    margin: 20px 0;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    display: block;
+    width: fit-content;
 }
-button:hover{
-    background-color: rgb(255, 60, 60);
 
+button:hover {
+    background-color: rgb(255, 60, 60);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .title {
+        text-align: center;
+    }
+    .instructions-container {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    button {
+        margin: 10px auto;
+    }
 }
 </style>

@@ -99,8 +99,27 @@ export default {
 .container_recipie {
     width: 90%;
     margin: auto;
+    padding: 20px 0;
 }
 
+.container-txt {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.container-txt .title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 2rem;
+    color: black;
+    margin: 0;
+}
+
+.container-txt .txt {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+}
 
 .card-container {
     display: flex;
@@ -119,7 +138,6 @@ export default {
     box-sizing: border-box;
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
-
 }
 
 .card:hover {
@@ -130,6 +148,7 @@ export default {
 .card img {
     width: 100%;
     height: auto;
+    cursor: pointer;
 }
 
 .card p {
@@ -138,32 +157,21 @@ export default {
     color: #555;
 }
 
-p.title-sec-section {
-    display: flex;
-    ;
-    font-family: "Roboto", sans-serif;
-    font-size: 28px;
-    font-weight: bold;
-    align-items: center;
-    justify-content: center;
+@media (max-width: 768px) {
+    .card {
+        width: calc(50% - 20px);
+    }
 }
 
-.container-txt {
-    text-align: left;
-    padding: 20px 0px;
-}
-
-.container-txt .title {
-    font-family: 'open sans';
-    font-size: 36px;
-    color: black;
-    margin: 0%
-}
-
-.container-txt .txt {
-    font-family: 'roboto';
-    font-size: 16px;
-    color: #555;
-
+@media (max-width: 480px) {
+    .card {
+        width: calc(100% - 20px);
+    }
+    .container-txt .title {
+        font-size: 1.5rem;
+    }
+    .container-txt .txt {
+        font-size: 0.9rem;
+    }
 }
 </style>

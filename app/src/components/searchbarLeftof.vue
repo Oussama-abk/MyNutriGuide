@@ -34,49 +34,56 @@ methods:{
 }
 }
 </script>
-
 <style lang="css" scoped>
-
-
 .search-container {
-display: flex;
-align-items: center;
-background-color: #fff;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-padding: 0px 20px;
-width: 500px;
-margin: auto;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0 20px;
+    width: 100%;
+    max-width: 500px; /* Max width for larger screens */
+    margin: 10px auto; /* Margin auto for centering */
+    box-sizing: border-box;
 }
 
 .search-input {
-border: none;
-outline: none;
-padding: 10px;
-font-size: 16px;
-flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 16px;
+    flex-grow: 1;
 }
 
 .search-input::placeholder {
-color: #aaa;
+    color: #aaa;
 }
 
 .search-button {
-background: none;
-border: none;
-cursor: pointer;
-outline: none;
-padding: 0;
-margin-left: 10px;
-color: #aaa;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    margin-left: 10px;
+    color: #aaa;
 }
 
 .search-button svg {
-width: 20px;
-height: 20px;
+    width: 20px;
+    height: 20px;
 }
 
+/* Responsive styles */
+@media (min-width: 600px) {
+    .search-container {
+        width: 80%;
+    }
+}
+
+@media (min-width: 900px) {
+    .search-container {
+        width: 70%;
+    }
+}
 </style>
-
-
-
-

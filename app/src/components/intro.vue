@@ -80,11 +80,11 @@ export default {
 
 
 <style lang="css" scoped>
-
-.container{
-    width:90%;
-    margin:auto;
+.container {
+    width: 90%;
+    margin: auto;
 }
+
 .title-subtitle-content {
     text-align: center;
     padding: 10px;
@@ -97,39 +97,54 @@ export default {
 }
 
 .subtitle {
-    font-family: 'inter';
+    font-family: 'Inter', sans-serif;
     font-size: 32px;
 }
 
 .txt {
-    font-family: 'Open sans';
-    font-size: 16px
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
 }
 
 .first-section {
     display: grid;
-    grid-template-columns: auto 600px;
-
-
-
+    grid-template-columns: 1fr;
+    gap: 20px;
 }
+
+.content-video iframe {
+    width: 100%;
+    height: 100%;
+}
+
 .container-btns {
-    text-align: right;
+    text-align: center;
 }
-.container-btns button{
+
+.container-btns button {
     border: none;
     color: white;
     margin: 5px;
     padding: 10px 15px;
-    font-family: 'Open sans';
-    font-weight:bolder;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bolder;
 }
 
-.container-btns .btn1{
+.container-btns .btn1 {
     background-color: #FFB703;
 }
 
-.container-btns .btn2{
+.container-btns .btn2 {
     background-color: #FB8500;
+}
+
+@media (min-width: 768px) {
+    .first-section {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .container-btns {
+        text-align: right;
+    }
 }
 </style>

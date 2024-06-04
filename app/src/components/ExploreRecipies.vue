@@ -7,7 +7,7 @@
         </div>
         <div class="card-container">
             <div v-for="(recipie, index) in recipies" :key="index" class="card">
-                <img :src="recipie.img" alt="Recipe Image">
+                <img :src="recipie.img" alt="Recipe Image" @click.prevent="redirect(index)">
                 <p>{{ recipie.name }}</p>
             </div>
         </div>
@@ -33,6 +33,11 @@ export default {
     },
 
     methods: {
+
+
+        redirect(index){
+            window.location.replace(this.recipies[index].moreinfo)
+        },
         async getAllrecipie() {
             try {
                 const results = await axios.get('https://www.themealdb.com/api/json/v1/1/search.php?f=r')
@@ -40,10 +45,11 @@ export default {
 
                 if (results) {
 
-                    for (let i = 0; i < 6; i++) {
+                    for (let i = 0; i < 8; i++) {
                         this.recipies.push({
                             img: fetchedRecipies[i].strMealThumb,
                             name: fetchedRecipies[i].strMeal,
+                            moreinfo: fetchedRecipies[i].strSource,
 
                         });
                     }
@@ -58,15 +64,15 @@ export default {
     }
 }
 
-
 </script>
+
 
 <style lang="css" scoped>
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; 
-    justify-content: center; 
+    gap: 20px;
+    justify-content: center;
 }
 
 .card {
@@ -75,16 +81,18 @@ export default {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: calc(33.333% - 20px); 
+    width: calc(100% - 20px);
+    max-width: 300px;
     box-sizing: border-box;
-    text-align: center; 
-    transition: transform 0.3s, box-shadow 0.3s; 
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
 
-}
 .card:hover {
-    transform: translateY(-10px); 
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
 .card img {
     width: 100%;
     height: auto;
@@ -96,19 +104,33 @@ export default {
     color: #555;
 }
 
-p.title-sec-section{
-    display: flex;;
+.title-sec-section {
+    display: flex;
     font-family: "Roboto", sans-serif;
     font-size: 28px;
     font-weight: bold;
     align-items: center;
     justify-content: center;
+    margin: 20px 0;
 }
 
-.delicious{
+.delicious {
     display: flex;
     justify-content: center;
     font-family: 'Courier New', Courier, monospace;
     font-size: 28px;
+    margin-top: 20px;
+}
+
+@media (min-width: 600px) {
+    .card {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (min-width: 900px) {
+    .card {
+        width: calc(33.333% - 20px);
+    }
 }
 </style>

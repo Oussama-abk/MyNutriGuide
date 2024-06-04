@@ -54,10 +54,7 @@ export default {
 }
 
 </script>
-
 <style lang="css" scoped>
-
-
 .background-overlay {
   position: fixed;
   top: 0;
@@ -75,11 +72,12 @@ export default {
   transform: translate(-50%, -50%);
   background-color: #ffffff;
   border: 1px solid #cccccc;
-  padding:20px;
+  padding: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   z-index: 999;
-  width: auto; /* Ajustez la largeur au besoin */
-
+  width: 90%; /* Full width on small screens */
+  max-width: 500px; /* Max width for larger screens */
+  box-sizing: border-box;
 }
 
 .popup-header {
@@ -89,25 +87,33 @@ export default {
 }
 
 .popup-title {
-
   font-size: 20px; /* Taille du titre */
   font-weight: bold; /* Gras */
-margin:auto;
-font-family: 'open sans';
-
+  font-family: 'Open Sans', sans-serif;
+  margin: auto;
 }
 
 .close-button {
   cursor: pointer;
-margin: 0;
-position: absolute;
-top: 0;
-right: 0;
-
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
-.popup-content{
-    padding: 50px 0px 10px 0px;
-    
+.popup-content {
+  padding: 50px 0 10px 0;
+}
+
+/* Media Queries */
+@media (min-width: 600px) {
+  .popup-container {
+    width: 80%;
+  }
+}
+
+@media (min-width: 900px) {
+  .popup-container {
+    width: 60%;
+  }
 }
 </style>
