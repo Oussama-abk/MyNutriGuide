@@ -16,8 +16,7 @@ To run the Recipe Finder App locally, follow these steps:
 
 1. **Clone the repository**:
     ```sh
-    git clone <repository_url>
-    cd recipe-finder-app
+    git clone https://github.com/oussama7845/MyNutriGuide.git
     ```
 
 2. **Install dependencies**:
