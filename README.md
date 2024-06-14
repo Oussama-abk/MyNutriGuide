@@ -1,5 +1,8 @@
 # MyNutriGuide
 
+## Lien vers Miro
+https://miro.com/app/board/uXjVKLzeTGE=/?share_link_id=107139608814
+
 ## Overview
 
 MyNutriGuide App is a Vue.js application designed to help you find recipes based on the ingredients you have. This app aims to reduce food waste by allowing you to input leftover ingredients and find dishes that include those ingredients. It's a simple and efficient way to make the most out of your kitchen supplies.
